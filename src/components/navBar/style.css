@@ -1,0 +1,108 @@
+
+.navbar {
+    background-color: var(--blue-theme-nav-background-color);
+    height: 50px;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2 rem;
+}
+
+.navbar_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+    padding: 0px 20px;
+    flex:1;
+}
+
+.navbar_container_logo {
+    color: var(--blue-theme-main-color);
+    cursor: pointer;
+}
+
+.navbar_container_menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar_container_menu_item{
+    line-height:40px;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    display:block;
+}
+
+.navbar_container_menu_item::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: transparent;
+    transition: all 0.5s ease;
+    
+}
+
+.navbar_container_menu_item:hover::after {
+    width: 100%;
+    background:var(--blue-theme-main-color)
+}
+
+.navbar_container_menu_item_links {
+    color: var(--blue-theme-main-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    
+}
+.navbar_container_menu_item_links:active {
+    color: rgb(6, 134, 181);
+    opacity:1;
+    
+}
+.navbar_container_menu_item_links:hover {
+    background-color: rgb(224, 227, 227);
+    transform: scale(0.95);
+}
+.nav-icon {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar_container_menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -450px;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .navbar_container_menu.active {
+        background:transparent;
+        left: 0px;
+        opacity: 1;
+        
+    }
+
+    .navbar_container_menu_item {
+       
+        padding: 10px;
+        margin: 0px;
+
+        
+        
+    }
+
+    .nav-icon {
+        display: block;
+        cursor: pointer;
+        color: var(--blue-theme-main-color);
+        padding-right: 20px;
+    }
+}
