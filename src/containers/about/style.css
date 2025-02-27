@@ -1,0 +1,40 @@
+.about {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.about_text-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.about_text-wrapper h1 {
+    color: var(--blue-theme-sub-text-color);
+    text-shadow: 4px 4px 8px rgba(5, 5, 90, 0.5);
+    margin: 0px;
+    padding-top: 100px;
+    font-weight: 500;
+    font-size: 8rem;
+    position: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.about_text-wrapper p{
+    color: var(--blue-theme-nav-background-color);
+    margin: 0px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 700px;
+    font-weight: 500;
+    font-size: 16px;
+    position: center;
+    
+}
