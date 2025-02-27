@@ -1,0 +1,90 @@
+.product {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.product_text-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+.product_text-wrapper2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add some space between h1 and h5 elements */
+}
+
+.product_text-wrapper h1 {
+    color: var(--blue-theme-sub-text-color);
+    text-shadow: 4px 4px 8px rgba(5, 5, 90, 0.5);
+    margin: 0px;
+    padding-top: 40px;
+    font-weight: 500;
+    font-size: 6rem;
+    position: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.product_text-wrapper2 h5{
+    color: var(--blue-theme-nav-background-color);
+    text-align: center;
+    font-weight: 500;
+    font-size: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0px 20px;
+}
+
+.first-word {
+    color: var(--blue-theme-main-color);
+}
+
+.second-word {
+    color: var(--blue-theme-main-color2);
+}
+
+.h5-box {
+    background-color: white;
+    padding: 20px;
+    margin:10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height:300px;
+    width: 350px;
+}
+.h5-box ul {
+    list-style-type: disc;
+    padding-left: 30px;
+    font-size: 1.5rem;
+    padding-top: 25px;
+
+}
+.h5-box ul li {
+    margin-bottom: 10px; /* Add this line to create space between bullet points */
+}
+.h5-box button {
+    margin-top: 15px;
+    margin-left: 80px;
+    padding: 10px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: transform 0.1s ease;
+    justify-content: space-between;
+}
+.h5-box button:hover {
+    background-color: #0056b3;
+}
+.h5-box button:active {
+    transform: scale(0.95); /* Add pressing effect */
+}
