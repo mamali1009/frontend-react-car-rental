@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './InventoryUpdate.css';
+import './InventoryUpdate.css'; // Import the CSS file
 
 const InventoryUpdate = () => {
     const [carData, setCarData] = useState({
         car_code: '',
         type_of_car: '',
-        car_model: '', 
+        car_model: '',
         ancillary_available: '',
         cost: '',
         capacity: '',
@@ -20,9 +20,10 @@ const InventoryUpdate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Basic validation
         const requiredFields = [
-            'car_code', 'type_of_car', 'car_model',
-            'ancillary_available', 'cost', 'capacity', 
+            'car_code', 'type_of_car', 'car_model', 
+            'ancillary_available', 'cost', 'capacity',
             'salient_features'
         ];
         const missingFields = requiredFields.filter(field => !carData[field]);
@@ -32,7 +33,7 @@ const InventoryUpdate = () => {
         }
 
         try {
-            const response = await fetch('http://54.213.93.110:5000/rental/inventory-update', {
+            const response = await fetch('/rental/inventory-update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,15 +43,6 @@ const InventoryUpdate = () => {
             const result = await response.json();
             if (result.success) {
                 alert('Car added successfully');
-                setCarData({
-                    car_code: '',
-                    type_of_car: '',
-                    car_model: '',
-                    ancillary_available: '',
-                    cost: '',
-                    capacity: '',
-                    salient_features: ''
-                });
             } else {
                 alert(`Error: ${result.message}`);
             }
