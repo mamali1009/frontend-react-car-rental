@@ -15,6 +15,7 @@ jobs:
           with:
             username: ${{ secrets.AWS_USERNAME }}
             accessToken: ${{ secrets.AWS_ACCESSTOKEN }}
+            aws-region: ${{secrets.AWS_REGION}}
  
  
         - name: Login to Amazon ECR
