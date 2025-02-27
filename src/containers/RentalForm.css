@@ -1,0 +1,78 @@
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    text-align: center;
+    margin: auto; /* Center horizontally */
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0091FF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #007ACC;
+}
+
+.response {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.response h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.output-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #444;
+}
+
+.response.error {
+    color: red;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.metrics {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.metrics-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #444;
+}

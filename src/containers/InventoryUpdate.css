@@ -1,0 +1,72 @@
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Soft pastel gradient */
+    color: white;
+}
+ 
+.inventory-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+ 
+.inventory-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+}
+ 
+.inventory-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    color: white; /* Ensure label text is white */
+}
+ 
+.inventory-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    font-size: 1em;
+    color: white; /* Ensure text inside input fields is white */
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly transparent background for input fields */
+}
+ 
+.inventory-form input::placeholder {
+    color: white; /* Ensure placeholder text is also white */
+}
+ 
+.inventory-form button {
+    padding: 15px 20px;
+    background-color: #a1c4fd; /* Use a soft color for the button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+ 
+.inventory-form button:hover {
+    background-color: #c2e9fb; /* Lighter shade on hover */
+    transform: scale(1.05);
+}
+ 
+.inventory-form button:active {
+    background-color: #a1c4fd; /* Darker shade on active */
+}

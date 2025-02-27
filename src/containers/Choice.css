@@ -1,0 +1,44 @@
+.choice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+}
+ 
+.choice-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+ 
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+ 
+.wide-button {
+    width: 200px;
+    padding: 15px 20px;
+    background-color: #0091FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+ 
+.wide-button:hover {
+    background-color: #007ACC;
+    transform: scale(1.05);
+}
+ 
+.wide-button:active {
+    background-color: #005f99;
+}
