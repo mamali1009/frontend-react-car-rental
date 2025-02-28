@@ -8,8 +8,8 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white;
+    background-image: linear-gradient(to right, #bcadf2, #ffffff);
+    color: rgb(0, 0, 0);
 }
  
 .choice-container h1 {
@@ -25,8 +25,8 @@
 .wide-button {
     width: 200px;
     padding: 15px 20px;
-    background-color: #0091FF;
-    color: white;
+    background-color: #82beec;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 8px;
     cursor: pointer;
