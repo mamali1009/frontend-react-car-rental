@@ -10,6 +10,8 @@ const Login = ({ onLoginSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
+    const API_URL = 'https://l3ku0c2no5.execute-api.us-west-2.amazonaws.com/Prod';
+
     const toggleForm = () => {
         setIsLogin(!isLogin);
         setErrorMessage('');
@@ -17,18 +19,26 @@ const Login = ({ onLoginSuccess }) => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch('/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password }),
-        });
-        const data = await response.json();
-        console.log(data); // Log the response data
+        try {
+            const response = await fetch(`${API_URL}/login`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({ username, password }),
+            });
+            const data = await response.json();
 
-        if (data.success) {
-            onLoginSuccess(username);
-        } else {
-            setErrorMessage(data.message);
+            if (response.ok) {
+                onLoginSuccess(username);
+                localStorage.setItem('token', data.token);
+            } else {
+                setErrorMessage(data.message || 'Login failed');
+            }
+        } catch (error) {
+            setErrorMessage('Network error occurred');
+            console.error('Login error:', error);
         }
     };
 
@@ -38,18 +48,26 @@ const Login = ({ onLoginSuccess }) => {
             setErrorMessage('Passwords do not match');
             return;
         }
-        const response = await fetch('/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password }),
-        });
-        const data = await response.json();
-        console.log(data); // Log the response data
+        try {
+            const response = await fetch(`${API_URL}/register`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify({ username, password }),
+            });
+            const data = await response.json();
 
-        if (data.success) {
-            onLoginSuccess(username);
-        } else {
-            setErrorMessage(data.message);
+            if (response.ok) {
+                onLoginSuccess(username);
+                localStorage.setItem('token', data.token);
+            } else {
+                setErrorMessage(data.message || 'Registration failed');
+            }
+        } catch (error) {
+            setErrorMessage('Network error occurred');
+            console.error('Registration error:', error);
         }
     };
 
@@ -68,12 +86,14 @@ const Login = ({ onLoginSuccess }) => {
                                     placeholder="Username"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
+                                    required
                                 />
                                 <input
                                     type="password"
                                     placeholder="Password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
+                                    required
                                 />
                             </div>
                             <button type="submit">Log in</button>
@@ -92,18 +112,21 @@ const Login = ({ onLoginSuccess }) => {
                                 placeholder="Username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
+                                required
                             />
                             <input
                                 type="password"
                                 placeholder="Create Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                required
                             />
                             <input
                                 type="password"
                                 placeholder="Confirm Password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
                             />
                             <button type="submit">Sign up</button>
                         </form>
