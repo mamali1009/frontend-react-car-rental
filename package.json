@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://54.213.93.110:5000/",
+  "proxy": "https://l3ku0c2no5.execute-api.us-west-2.amazonaws.com/Prod",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
