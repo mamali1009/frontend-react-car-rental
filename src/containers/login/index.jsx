@@ -10,7 +10,7 @@ const Login = ({ onLoginSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
-    const API_URL = 'https://l3ku0c2no5.execute-api.us-west-2.amazonaws.com/Prod';
+    const API_URL = 'https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod';
 
     const toggleForm = () => {
         setIsLogin(!isLogin);
