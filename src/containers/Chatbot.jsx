@@ -10,6 +10,7 @@ const Chatbot = () => {
     const [messages, setMessages] = useState([]);
     const [showMetrics, setShowMetrics] = useState(false);
     const [metrics, setMetrics] = useState(null);
+    const [conversationHistory, setConversationHistory] = useState([]);
 
     useEffect(() => {
         const initialMessage = "Hi! I'm your car rental assistant. Please tell me about your rental needs including pickup/dropoff location, dates, number of people, and any preferences you have.";
@@ -21,32 +22,51 @@ const Chatbot = () => {
         const userMessage = { sender: 'user', text: prompt };
         setMessages([...messages, userMessage]);
 
-        const response = await fetch('/rental/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt, username }),
-        });
-        const data = await response.json();
-        console.log(data); // Log the response data
-        if (data.success) {
-            setOutput(data.output);
-            setMessages([...messages, userMessage, { sender: 'chatbot', text: data.output }]);
-            setErrorMessage('');
-        } else {
-            setErrorMessage(data.message);
+        try {
+            const response = await fetch('/rental/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt, username, conversation_history: conversationHistory }),
+            });
+            const data = await response.json();
+            console.log(data); // Log the response data
+
+            if (data.success) {
+                if (data.needs_more_info) {
+                    setOutput(data.follow_up_questions);
+                    setMessages([...messages, userMessage, { sender: 'chatbot', text: data.follow_up_questions }]);
+                    setConversationHistory(data.conversation_history);
+                } else {
+                    setOutput(data.output);
+                    setMessages([...messages, userMessage, { sender: 'chatbot', text: data.output }]);
+                    setConversationHistory([]);
+                }
+                setErrorMessage('');
+            } else {
+                setErrorMessage(data.message);
+                setMessages([...messages, userMessage]);
+                setOutput('');
+            }
+        } catch (error) {
+            setErrorMessage('An error occurred while processing your request.');
             setMessages([...messages, userMessage]);
             setOutput('');
         }
+
         setPrompt('');
     };
 
     const fetchMetrics = async () => {
-        const response = await fetch('/rental/metrics', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        });
-        const data = await response.json();
-        setMetrics(data.metrics);
+        try {
+            const response = await fetch('/rental/metrics', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            });
+            const data = await response.json();
+            setMetrics(data.metrics);
+        } catch (error) {
+            setErrorMessage('An error occurred while fetching metrics.');
+        }
     };
 
     return (
