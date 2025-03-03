@@ -58,7 +58,7 @@ const Chatbot = () => {
 
     const fetchMetrics = async () => {
         try {
-            const response = await fetch('/rental/metrics', {
+            const response = await fetch('https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/rental/metrics', {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
