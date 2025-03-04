@@ -49,7 +49,7 @@ const Login = ({ onLoginSuccess }) => {
             return;
         }
         try {
-            const response = await fetch(`${API_URL}/register`, {
+            const response = await fetch(`https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/register`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
