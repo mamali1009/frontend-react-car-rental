@@ -23,7 +23,7 @@ const RentalForm = () => {
     const [showMetrics, setShowMetrics] = useState(false);
     const [metrics, setMetrics] = useState(null);
 
-    const API_URL = 'https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod';
+    
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,7 +32,7 @@ const RentalForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${API_URL}/rental/form`, {
+            const response = await fetch(`https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/form`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const RentalForm = () => {
 
     const fetchMetrics = async () => {
         try {
-            const response = await fetch(`${API_URL}/rental/metrics`, {
+            const response = await fetch(`https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/metrics`, {
                 method: 'GET',
                 headers: { 
                     'Content-Type': 'application/json',
