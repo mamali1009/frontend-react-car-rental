@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InventoryUpdate.css';
 
-const API_BASE_URL = 'https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod';
+
 
 const InventoryUpdate = () => {
     const [carData, setCarData] = useState({
@@ -53,7 +53,7 @@ const InventoryUpdate = () => {
             validateForm();
 
             const response = await axios.post(
-                `${API_BASE_URL}/rental/inventory-update`,
+                `https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/inventory-update`,
                 carData,
                 {
                     headers: {
