@@ -20,7 +20,7 @@ const Login = ({ onLoginSuccess }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/login`, {
+            const response = await fetch(`https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const Login = ({ onLoginSuccess }) => {
             return;
         }
         try {
-            const response = await fetch(`https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/register`, {
+            const response = await fetch(`https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/register`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
