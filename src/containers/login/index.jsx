@@ -10,7 +10,7 @@ const Login = ({ onLoginSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
-    const API_URL = 'https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod';
+    
 
     const toggleForm = () => {
         setIsLogin(!isLogin);
@@ -20,7 +20,7 @@ const Login = ({ onLoginSuccess }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${API_URL}/login`, {
+            const response = await fetch(`https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
