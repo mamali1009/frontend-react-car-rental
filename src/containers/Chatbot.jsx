@@ -23,7 +23,7 @@ const Chatbot = () => {
         setMessages([...messages, userMessage]);
 
         try {
-            const response = await fetch('https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/rental/chat', {
+            const response = await fetch('https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ prompt, username, conversation_history: conversationHistory }),
@@ -58,7 +58,7 @@ const Chatbot = () => {
 
     const fetchMetrics = async () => {
         try {
-            const response = await fetch('https://fb4g06zjra.execute-api.us-west-2.amazonaws.com/prod/rental/metrics', {
+            const response = await fetch('https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/metrics', {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
