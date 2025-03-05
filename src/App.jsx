@@ -9,20 +9,22 @@ import Choice from './containers/Choice';
 import RentalForm from './containers/RentalForm';
 import Chatbot from './containers/Chatbot';
 import InventoryUpdate from './containers/InventoryUpdate';
+import VoiceChat from './containers/VoiceChat';
 import RentalResult from './containers/RentalResult';
 import ChatbotResult from './containers/ChatbotResult';
- 
+import VoiceChatResult from './containers/VoiceChatResult'; // Import the new component
+
 export const UserContext = createContext();
- 
+
 function App() {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
- 
+
   const onLoginSuccess = (username) => {
     setUsername(username);
     navigate('/choice');
   };
- 
+
   return (
     <UserContext.Provider value={{ username, setUsername }}>
       <div className="App">
@@ -36,13 +38,15 @@ function App() {
           <Route path='/rental/form' element={<RentalForm />} />
           <Route path='/rental/chat' element={<Chatbot />} />
           <Route path='/rental/inventory-update' element={<InventoryUpdate />} />
+          <Route path='/rental/voice-chat' element={<VoiceChat />} />
           <Route path='/rental/result' element={<RentalResult />} />
           <Route path='/rental/chat-result' element={<ChatbotResult />} />
+          <Route path='/rental/voice-chat-result' element={<VoiceChatResult />} /> {/* Add the new route */}
           
         </Routes>
       </div>
     </UserContext.Provider>
   );
 }
- 
+
 export default App;
