@@ -6,13 +6,15 @@ const Choice = () => {
     const navigate = useNavigate();
 
     const handleSelection = (option) => {
-        if (option === 'form') {
-            navigate('/rental/form');
+        if (option === 'voice-chat') {
+            navigate('/rental/voice-chat');
         } else if (option === 'chatbot') {
             navigate('/rental/chat');
         } else if (option === 'inventory-update') {
             navigate('/rental/inventory-update');
-        } 
+        } else if (option === 'voice-chat'){
+            navigate('/rental/voice-chat');   
+        }
         
     };
 
@@ -23,7 +25,7 @@ const Choice = () => {
                 <button className="wide-button" onClick={() => handleSelection('form')}>Form Interface</button>
                 <button className="wide-button" onClick={() => handleSelection('chatbot')}>Chatbot</button>
                 <button className="wide-button" onClick={() => handleSelection('inventory-update')}>Update Inventory</button>
-                
+                <button className="wide-button" onClick={() => handleSelection('voice-chat')}>Voice Chat</button>
             </div>
         </div>
     );
