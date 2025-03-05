@@ -6,8 +6,8 @@ const Choice = () => {
     const navigate = useNavigate();
 
     const handleSelection = (option) => {
-        if (option === 'voice-chat') {
-            navigate('/rental/voice-chat');
+        if (option === 'form') {
+            navigate('/rental/form');
         } else if (option === 'chatbot') {
             navigate('/rental/chat');
         } else if (option === 'inventory-update') {
