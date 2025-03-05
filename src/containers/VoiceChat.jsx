@@ -41,7 +41,7 @@ const VoiceChat = () => {
         }
 
         const formData = new FormData();
-        formData.append('audio', audioBlob, 'recording.wav');
+        formData.append('audio', audioBlob, 'recording.mp3');
         formData.append('username', username);
 
         try {
