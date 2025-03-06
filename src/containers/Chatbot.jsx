@@ -8,8 +8,6 @@ const Chatbot = () => {
     const [output, setOutput] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const [showMetrics, setShowMetrics] = useState(false);
-    const [metrics, setMetrics] = useState(null);
     const [conversationHistory, setConversationHistory] = useState([]);
 
     useEffect(() => {
@@ -56,19 +54,6 @@ const Chatbot = () => {
         setPrompt('');
     };
 
-    const fetchMetrics = async () => {
-        try {
-            const response = await fetch('https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/metrics', {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json' },
-            });
-            const data = await response.json();
-            setMetrics(data.metrics);
-        } catch (error) {
-            setErrorMessage('An error occurred while fetching metrics.');
-        }
-    };
-
     return (
         <div className="main-container">
             <div className="chatbot-container">
@@ -80,7 +65,7 @@ const Chatbot = () => {
                         </div>
                     ))}
                 </div>
-                <form onSubmit={handleChat}>
+                <form onSubmit={handleChat} className="chat-form">
                     <textarea
                         placeholder="Enter your prompt"
                         value={prompt}
@@ -88,24 +73,6 @@ const Chatbot = () => {
                     />
                     <button type="submit">Submit</button>
                 </form>
-                {output && (
-                    <div className="response">
-                        <h2>Chatbot Response</h2>
-                        <div className="output-content">{output}</div>
-                        <button onClick={() => setShowMetrics(true)}>Show Metrics</button>
-                    </div>
-                )}
-                {showMetrics && (
-                    <div className="metrics">
-                        <h2>CloudWatch Metrics</h2>
-                        <button onClick={fetchMetrics}>Fetch Metrics</button>
-                        {metrics && (
-                            <div className="metrics-content">
-                                <pre>{JSON.stringify(metrics, null, 2)}</pre>
-                            </div>
-                        )}
-                    </div>
-                )}
                 {errorMessage && <div className="response error">Error: {errorMessage}</div>}
             </div>
         </div>
