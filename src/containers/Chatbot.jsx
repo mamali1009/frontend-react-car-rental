@@ -16,7 +16,7 @@ const Chatbot = () => {
     setMissingFields(null);
 
     try {
-      const res = await fetch("/rental/chat", {
+      const res = await fetch("https://5s6t4kg9vb.execute-api.us-west-2.amazonaws.com/production/rental/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt, username: "test_user" })
