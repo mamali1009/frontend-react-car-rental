@@ -11,7 +11,7 @@ const Chatbot = () => {
     const [conversationHistory, setConversationHistory] = useState([]);
 
     useEffect(() => {
-        const initialMessage = "Hi! I'm your car rental assistant. Please tell me about your rental needs including pickup/dropoff location, dates, number of people, and any preferences you have.";
+        const initialMessage = "Hi! I'm your car rental assistant.";
         setMessages([{ sender: 'chatbot', text: initialMessage }]);
     }, []);
 
